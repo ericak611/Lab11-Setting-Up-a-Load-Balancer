@@ -43,7 +43,7 @@ services:
     volumes:
       - my-db:/var/lib/mysql
   receiver:
-    image: receiver:latest
+    image: receiver:lab12
     ports:
       - '8080'
     networks:
@@ -56,7 +56,7 @@ services:
     depends_on:
       - "kafka"
   storage:
-    image: storage:latest
+    image: storage:lab12
     ports:
       - "8090"
     networks:
@@ -70,7 +70,7 @@ services:
       - kafka
       - db
   processing:
-    image: processing:latest
+    image: processing:lab12
     ports:
       - "8100"
     networks:
@@ -85,7 +85,7 @@ services:
     depends_on:
       - storage
   audit_log:
-    image: audit_log:latest
+    image: audit_log:lab12
     ports:
       - "8110"
     networks:
@@ -98,7 +98,7 @@ services:
     depends_on:
       - kafka     
   dashboard-ui:
-    image: dashboard:latest
+    image: dashboard:lab12
     ports:
       - "3000"
     networks:
